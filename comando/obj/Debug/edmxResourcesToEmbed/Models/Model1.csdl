@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="comando.Models.modeloDbContextModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="actions" EntityType="comando.Models.modeloDbContextModel.actions" />
+    <EntitySet Name="AgentByUsers" EntityType="comando.Models.modeloDbContextModel.AgentByUsers" />
+    <EntitySet Name="agents" EntityType="comando.Models.modeloDbContextModel.agents" />
+    <EntitySet Name="components" EntityType="comando.Models.modeloDbContextModel.components" />
+    <EntitySet Name="levels" EntityType="comando.Models.modeloDbContextModel.levels" />
+    <EntitySet Name="modules" EntityType="comando.Models.modeloDbContextModel.modules" />
+    <EntitySet Name="permissions" EntityType="comando.Models.modeloDbContextModel.permissions" />
+    <EntitySet Name="profiles" EntityType="comando.Models.modeloDbContextModel.profiles" />
+    <EntitySet Name="roles" EntityType="comando.Models.modeloDbContextModel.roles" />
+    <EntitySet Name="users" EntityType="comando.Models.modeloDbContextModel.users" />
+    <AssociationSet Name="Ref5" Association="comando.Models.modeloDbContextModel.Ref5">
+      <End Role="actions" EntitySet="actions" />
+      <End Role="permissions" EntitySet="permissions" />
+    </AssociationSet>
+    <AssociationSet Name="Ref7" Association="comando.Models.modeloDbContextModel.Ref7">
+      <End Role="modules" EntitySet="modules" />
+      <End Role="actions" EntitySet="actions" />
+    </AssociationSet>
+    <AssociationSet Name="Ref10" Association="comando.Models.modeloDbContextModel.Ref10">
+      <End Role="levels" EntitySet="levels" />
+      <End Role="AgentByUsers" EntitySet="AgentByUsers" />
+    </AssociationSet>
+    <AssociationSet Name="Ref8" Association="comando.Models.modeloDbContextModel.Ref8">
+      <End Role="users" EntitySet="users" />
+      <End Role="AgentByUsers" EntitySet="AgentByUsers" />
+    </AssociationSet>
+    <AssociationSet Name="Ref9" Association="comando.Models.modeloDbContextModel.Ref9">
+      <End Role="agents" EntitySet="agents" />
+      <End Role="AgentByUsers" EntitySet="AgentByUsers" />
+    </AssociationSet>
+    <AssociationSet Name="Ref6" Association="comando.Models.modeloDbContextModel.Ref6">
+      <End Role="components" EntitySet="components" />
+      <End Role="modules" EntitySet="modules" />
+    </AssociationSet>
+    <AssociationSet Name="Ref4" Association="comando.Models.modeloDbContextModel.Ref4">
+      <End Role="modules" EntitySet="modules" />
+      <End Role="permissions" EntitySet="permissions" />
+    </AssociationSet>
+    <AssociationSet Name="Ref3" Association="comando.Models.modeloDbContextModel.Ref3">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="permissions" EntitySet="permissions" />
+    </AssociationSet>
+    <AssociationSet Name="Ref1" Association="comando.Models.modeloDbContextModel.Ref1">
+      <End Role="users" EntitySet="users" />
+      <End Role="profiles" EntitySet="profiles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="actions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="path" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="moduleid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="permissions" Relationship="comando.Models.modeloDbContextModel.Ref5" FromRole="actions" ToRole="permissions" />
+    <NavigationProperty Name="modules" Relationship="comando.Models.modeloDbContextModel.Ref7" FromRole="actions" ToRole="modules" />
+  </EntityType>
+  <EntityType Name="AgentByUsers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="agentid" Type="Int32" Nullable="false" />
+    <Property Name="levelid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="levels" Relationship="comando.Models.modeloDbContextModel.Ref10" FromRole="AgentByUsers" ToRole="levels" />
+    <NavigationProperty Name="users" Relationship="comando.Models.modeloDbContextModel.Ref8" FromRole="AgentByUsers" ToRole="users" />
+    <NavigationProperty Name="agents" Relationship="comando.Models.modeloDbContextModel.Ref9" FromRole="AgentByUsers" ToRole="agents" />
+  </EntityType>
+  <EntityType Name="agents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AgentByUsers" Relationship="comando.Models.modeloDbContextModel.Ref9" FromRole="agents" ToRole="AgentByUsers" />
+  </EntityType>
+  <EntityType Name="components">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="path" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="modules" Relationship="comando.Models.modeloDbContextModel.Ref6" FromRole="components" ToRole="modules" />
+  </EntityType>
+  <EntityType Name="levels">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AgentByUsers" Relationship="comando.Models.modeloDbContextModel.Ref10" FromRole="levels" ToRole="AgentByUsers" />
+  </EntityType>
+  <EntityType Name="modules">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="path" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="componetid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="actions" Relationship="comando.Models.modeloDbContextModel.Ref7" FromRole="modules" ToRole="actions" />
+    <NavigationProperty Name="components" Relationship="comando.Models.modeloDbContextModel.Ref6" FromRole="modules" ToRole="components" />
+    <NavigationProperty Name="permissions" Relationship="comando.Models.modeloDbContextModel.Ref4" FromRole="modules" ToRole="permissions" />
+  </EntityType>
+  <EntityType Name="permissions">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="rolid" Type="Int32" Nullable="false" />
+    <Property Name="moduleid" Type="Int32" Nullable="false" />
+    <Property Name="actionid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="actions" Relationship="comando.Models.modeloDbContextModel.Ref5" FromRole="permissions" ToRole="actions" />
+    <NavigationProperty Name="modules" Relationship="comando.Models.modeloDbContextModel.Ref4" FromRole="permissions" ToRole="modules" />
+    <NavigationProperty Name="roles" Relationship="comando.Models.modeloDbContextModel.Ref3" FromRole="permissions" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="profiles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="lastname" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="addrress" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="phones" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="useid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="comando.Models.modeloDbContextModel.Ref1" FromRole="profiles" ToRole="users" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="permissions" Relationship="comando.Models.modeloDbContextModel.Ref3" FromRole="roles" ToRole="permissions" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="usernamne" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="rolid" Type="Int32" Nullable="false" />
+    <Property Name="configid" Type="Int32" Nullable="false" />
+    <Property Name="isSA" Type="Int16" Nullable="false" />
+    <Property Name="status" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="AgentByUsers" Relationship="comando.Models.modeloDbContextModel.Ref8" FromRole="users" ToRole="AgentByUsers" />
+    <NavigationProperty Name="profiles" Relationship="comando.Models.modeloDbContextModel.Ref1" FromRole="users" ToRole="profiles" />
+  </EntityType>
+  <Association Name="Ref5">
+    <End Role="actions" Type="comando.Models.modeloDbContextModel.actions" Multiplicity="1" />
+    <End Role="permissions" Type="comando.Models.modeloDbContextModel.permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="actions">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="permissions">
+        <PropertyRef Name="actionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref7">
+    <End Role="modules" Type="comando.Models.modeloDbContextModel.modules" Multiplicity="1" />
+    <End Role="actions" Type="comando.Models.modeloDbContextModel.actions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modules">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="actions">
+        <PropertyRef Name="moduleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref10">
+    <End Role="levels" Type="comando.Models.modeloDbContextModel.levels" Multiplicity="1" />
+    <End Role="AgentByUsers" Type="comando.Models.modeloDbContextModel.AgentByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="levels">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentByUsers">
+        <PropertyRef Name="levelid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref8">
+    <End Role="users" Type="comando.Models.modeloDbContextModel.users" Multiplicity="1" />
+    <End Role="AgentByUsers" Type="comando.Models.modeloDbContextModel.AgentByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentByUsers">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref9">
+    <End Role="agents" Type="comando.Models.modeloDbContextModel.agents" Multiplicity="1" />
+    <End Role="AgentByUsers" Type="comando.Models.modeloDbContextModel.AgentByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="agents">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="AgentByUsers">
+        <PropertyRef Name="agentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref6">
+    <End Role="components" Type="comando.Models.modeloDbContextModel.components" Multiplicity="1" />
+    <End Role="modules" Type="comando.Models.modeloDbContextModel.modules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="components">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="modules">
+        <PropertyRef Name="componetid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref4">
+    <End Role="modules" Type="comando.Models.modeloDbContextModel.modules" Multiplicity="1" />
+    <End Role="permissions" Type="comando.Models.modeloDbContextModel.permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modules">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="permissions">
+        <PropertyRef Name="moduleid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref3">
+    <End Role="roles" Type="comando.Models.modeloDbContextModel.roles" Multiplicity="1" />
+    <End Role="permissions" Type="comando.Models.modeloDbContextModel.permissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="permissions">
+        <PropertyRef Name="rolid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Ref1">
+    <End Role="users" Type="comando.Models.modeloDbContextModel.users" Multiplicity="1" />
+    <End Role="profiles" Type="comando.Models.modeloDbContextModel.profiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="profiles">
+        <PropertyRef Name="useid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

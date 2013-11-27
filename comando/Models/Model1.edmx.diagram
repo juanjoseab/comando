@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f62366229494721930aaa6ab783ed2c" Name="Diagrama1">
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.actions" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.AgentByUsers" Width="1.5" PointX="5.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.agents" Width="1.5" PointX="8.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.components" Width="1.5" PointX="0.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.levels" Width="1.5" PointX="5.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.modules" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.permissions" Width="1.5" PointX="3.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.profiles" Width="1.5" PointX="2.875" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.roles" Width="1.5" PointX="7.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="comando.Models.modeloDbContextModel.users" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref5" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref7" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref10" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref8" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref9" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref6" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref4" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref3" ManuallyRouted="false" />
+        <AssociationConnector Association="comando.Models.modeloDbContextModel.Ref1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

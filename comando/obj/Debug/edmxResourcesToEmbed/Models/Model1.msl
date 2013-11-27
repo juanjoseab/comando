@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="comandoModelsmodeloDbContextModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="actions">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.actions">
+        <MappingFragment StoreEntitySet="actions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AgentByUsers">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.AgentByUsers">
+        <MappingFragment StoreEntitySet="AgentByUsers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="levelid" ColumnName="levelid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="agents">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.agents">
+        <MappingFragment StoreEntitySet="agents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="components">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.components">
+        <MappingFragment StoreEntitySet="components">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="levels">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.levels">
+        <MappingFragment StoreEntitySet="levels">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modules">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.modules">
+        <MappingFragment StoreEntitySet="modules">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="componetid" ColumnName="componetid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permissions">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.permissions">
+        <MappingFragment StoreEntitySet="permissions">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="rolid" ColumnName="rolid" />
+          <ScalarProperty Name="moduleid" ColumnName="moduleid" />
+          <ScalarProperty Name="actionid" ColumnName="actionid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profiles">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.profiles">
+        <MappingFragment StoreEntitySet="profiles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="addrress" ColumnName="addrress" />
+          <ScalarProperty Name="phones" ColumnName="phones" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="useid" ColumnName="useid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="comando.Models.modeloDbContextModel.users">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="usernamne" ColumnName="usernamne" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="rolid" ColumnName="rolid" />
+          <ScalarProperty Name="configid" ColumnName="configid" />
+          <ScalarProperty Name="isSA" ColumnName="isSA" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
