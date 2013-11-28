@@ -1,0 +1,82 @@
+﻿@model comando.Models.user
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>user</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.usernamne)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.usernamne)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayName("rol")
+    </div>
+    <div class="display-field">
+        @switch (Model.rolid)
+        {
+            case 7:
+                @Html.DisplayName("Super Administrador") 
+                break;
+             case 8:
+                 @Html.DisplayName("Administrador") 
+                break;
+             case 9:
+                 @Html.DisplayName("Operador") 
+                break; 
+             case 10:
+                @Html.DisplayName("Mayorista") 
+                break;
+             case 11:
+                 @Html.DisplayName("Cliente") 
+                break;
+        }
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.configid)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.configid)
+    </div>
+
+   <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @if (Model.status == 1) 
+            {
+                @Html.DisplayName("Activo");
+            }
+            else
+            {
+                @Html.DisplayName("No Activo");
+            }
+           
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

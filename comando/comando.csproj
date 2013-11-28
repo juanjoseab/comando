@@ -164,7 +164,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Datos.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\profileController.cs" />
+    <Compile Include="Controllers\sauserController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -346,6 +349,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\sauser\Index.cshtml" />
+    <Content Include="Views\sauser\Details.cshtml" />
+    <Content Include="Views\sauser\Create.cshtml" />
+    <Content Include="Views\sauser\Edit.cshtml" />
+    <Content Include="Views\sauser\Delete.cshtml" />
+    <Content Include="Views\profile\Index.cshtml" />
+    <Content Include="Views\profile\Details.cshtml" />
+    <Content Include="Views\profile\Create.cshtml" />
+    <Content Include="Views\profile\Edit.cshtml" />
+    <Content Include="Views\profile\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

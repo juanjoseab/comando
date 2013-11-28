@@ -1,0 +1,98 @@
+﻿@model IEnumerable<comando.Models.user>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="800" height="68">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.usernamne)
+        </th>
+        <th>
+           @Html.DisplayName("rol")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.configid)
+        </th>
+        <th>
+            @Html.DisplayName("Is SA")
+           
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usernamne)
+        </td>
+        <td>
+        @switch (item.rolid)
+        {
+            case 7:
+                @Html.DisplayName("Super Administrador") 
+                break;
+             case 8:
+                 @Html.DisplayName("Administrador") 
+                break;
+             case 9:
+                 @Html.DisplayName("Operador") 
+                break; 
+             case 10:
+                @Html.DisplayName("Mayorista") 
+                break;
+             case 11:
+                 @Html.DisplayName("Cliente") 
+                break;
+        }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.configid)
+        </td>
+        <td>
+               @if (item.isSA == 1)
+               {
+                   @Html.DisplayName("True");
+               }
+               else 
+               {
+                    @Html.DisplayName("False");
+               }
+           
+        </td>
+        <td>
+            @if (item.status == 1) 
+            {
+                @Html.DisplayName("Activo");
+            }
+            else
+            {
+                @Html.DisplayName("No Activo");
+            }
+           
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

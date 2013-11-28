@@ -1,0 +1,78 @@
+﻿@model comando.Models.user
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>user</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.name)
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.usernamne)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.usernamne)
+            @Html.ValidationMessageFor(model => model.usernamne)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Rol")
+        </div>
+        <div class="editor-field">
+
+            @Html.DropDownList("rolList", new List<SelectListItem> { new SelectListItem{ Text="Super Admnistrador", Value = "1" }, new SelectListItem{ Text="Administrador", Value = "2" },new SelectListItem{ Text="Operador", Value = "3" },new SelectListItem{ Text="Mayorista", Value = "4" },new SelectListItem{ Text="Cliente", Value = "5" } })    
+           @Html.ValidationMessageFor(model => model.rolid)
+        </div>  
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.configid)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.configid)
+            @Html.ValidationMessageFor(model => model.configid)
+        </div>
+
+
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Status", new List<SelectListItem> { new SelectListItem{ Text="Activo", Value = "1" }, new SelectListItem{ Text="No-Activo", Value = "0" } }) 
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
